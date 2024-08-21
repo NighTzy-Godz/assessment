@@ -1,6 +1,6 @@
 
-from server import db
-
+from server import db, app
+import jwt
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     firstName = db.Column(db.String(20), nullable=False)
@@ -17,3 +17,12 @@ class User(db.Model):
             "email": self.email,
             "pfp": self.pfp
         }
+    
+    def generate_auth_token(self):
+        payload = {
+            "id": self.id,
+            "fullName": self.firstName + " " + self.lastName,
+            "pfp": self.pfp
+        }
+        token = jwt.encode(payload, app.config['SECRET_KEY'], algorithm="HS256")
+        return token
