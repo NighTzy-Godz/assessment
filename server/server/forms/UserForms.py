@@ -9,3 +9,7 @@ class RegisterUserForm(FlaskForm):
     email = EmailField('Email', validators=[InputRequired('Email is a required field'), Email('Email should be a type of email')])
     password = PasswordField('Password', validators=[InputRequired('Password is a required field'), Length(min=5, max=20, message='Password should be atleast 5 characters long and not exceed 20 characters'), EqualTo('confirmPass', message='Password and Confirm Password should match')])
     confirmPass = PasswordField('Confirm Password', validators=[InputRequired('Password is a required field'), Length(min=5, max=20, message='Confirm Password should be atleast 5 characters long and not exceed 20 characters')])
+
+class LoginUserForm(FlaskForm):
+    email = EmailField('Email', validators=[InputRequired('Email is a required field'), Email('Email should be a type of email')])
+    password = PasswordField('Password', validators=[InputRequired('Password is a required field'), Length(min=5, max=20, message='Password should be atleast 5 characters long and not exceed 20 characters')])
