@@ -1,4 +1,4 @@
-from flask import jsonify
+from flask import jsonify, request
 from server import app, db
 from server.models.UserModel import User
 from server.forms.UserForms import RegisterUserForm, LoginUserForm
@@ -8,15 +8,17 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 @app.route('/api/registerUser',methods=['POST'])
 def userRegisterRoute():
+  
     form = RegisterUserForm()
 
     if not form.validate_on_submit():
-        errors = {field: error for field, errors in form.errors.items() for error in errors}
-        return jsonify(errors), 400
+        first_error_message = next(iter(next(iter(form.errors.values()), [])))
+        resBody = {"msg":first_error_message, "status":400}
+        return jsonify(resBody), 400
 
     existingUser = User.query.filter_by(email=form.email.data).first()
     if existingUser:
-        return jsonify({"error":"Email already in use"}), 409
+        return jsonify({"msg":"Email already in use", "status":409}), 409 
 
     hashed_pass = generate_password_hash(form.confirmPass.data)
     newUser = User(
@@ -27,11 +29,11 @@ def userRegisterRoute():
     )
 
 
-    db.session.add(newUser)
-    db.session.commit()
+    # db.session.add(newUser)
+    # db.session.commit()
 
-
-    return jsonify(newUser.to_dict()), 201
+    resBody = {"msg": f'Created the Account for {newUser.firstName} {newUser.lastName}!', "status":201 }
+    return jsonify(resBody), 201
 
 @app.route('/api/loginUser', methods=['POST'])
 def loginRoute():
@@ -51,3 +53,13 @@ def loginRoute():
     token = existingUser.generate_auth_token()
 
     return jsonify(token), 200
+
+
+@app.route('/api/getItems')
+def getItems():
+    items  = [
+        {"id":1, "name":'Aser'},
+        {"id":1, "name":'James'},
+    ]
+
+    return jsonify(items)
