@@ -1,6 +1,6 @@
 from flask import jsonify
 from server import app, db
-from server.models.user import User
+from server.models.UserModel import User
 from server.forms.UserForms import RegisterUserForm, LoginUserForm
 from werkzeug.security import generate_password_hash, check_password_hash
 
