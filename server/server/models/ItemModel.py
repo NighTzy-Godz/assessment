@@ -1,6 +1,6 @@
 from server import db
 from datetime import datetime
-class Product(db.Model):
+class Item(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.Text, nullable=False)
     desc = db.Column(db.String(300), nullable=False)

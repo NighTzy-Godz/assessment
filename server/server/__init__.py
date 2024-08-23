@@ -7,6 +7,8 @@ import cloudinary.api
 from dotenv import load_dotenv
 import os
 
+
+ 
 load_dotenv()
 
 app = Flask(__name__)
@@ -23,4 +25,4 @@ cloudinary.config(
 
 CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 
-from server.routes import userRoutes, productRoutes
+from server.routes import userRoutes, itemRoutes
