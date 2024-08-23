@@ -29,8 +29,8 @@ def userRegisterRoute():
     )
 
 
-    # db.session.add(newUser)
-    # db.session.commit()
+    db.session.add(newUser)
+    db.session.commit()
 
     resBody = {"msg": f'Created the Account for {newUser.firstName} {newUser.lastName}!', "status":201 }
     return jsonify(resBody), 201
@@ -39,21 +39,22 @@ def userRegisterRoute():
 def loginRoute():
     form = LoginUserForm()
     if not form.validate_on_submit():
-        errors = {field: error for field, errors in form.errors.items() for error in errors}
-        return jsonify(errors), 400
+        first_error_message = next(iter(next(iter(form.errors.values()), [])))
+        resBody = {"msg":first_error_message, "status":400}
+        return jsonify(resBody), 400
     
     existingUser = User.query.filter_by(email=form.email.data).first()
     if not existingUser:
-        return jsonify('User did not found'), 404
+         return jsonify({"msg":"User did not found", "status":404}), 404 
     
     validPassword = check_password_hash(existingUser.password, form.password.data)
     if not validPassword:
-        return jsonify('Credentials did not match'), 400
+        return jsonify({"msg":"Credentials did not match", "status":400}), 400 
     
     token = existingUser.generate_auth_token()
-
-    return jsonify(token), 200
-
+    resBody = {"msg": 'Welcome back!', "data":token, "status":201 }
+    return jsonify(resBody), 200
+  
 
 @app.route('/api/getItems')
 def getItems():
