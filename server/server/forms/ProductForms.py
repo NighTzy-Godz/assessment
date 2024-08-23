@@ -10,7 +10,7 @@ class CreateProductForm(FlaskForm):
     
     desc = TextAreaField('Description', validators=[
         InputRequired(message='Description is required'),
-        Length(min=10, message='Description must be at least 10 characters long')
+        Length(min=10, max=300, message='Description must be at least 10 characters long and 300 characters max')
     ])
     
     price = FloatField('Price', validators=[
@@ -18,7 +18,7 @@ class CreateProductForm(FlaskForm):
         NumberRange(min=0, message='Price must be a positive number')
     ])
     
-    category = StringField('Category', validators=[
-        InputRequired(message='Category is required'),
-        Length(min=2, max=50, message='Category must be between 2 and 50 characters')
-    ])
+    # category = StringField('Category', validators=[
+    #     InputRequired(message='Category is required'),
+    #     Length(min=2, max=50, message='Category must be between 2 and 50 characters')
+    # ])
