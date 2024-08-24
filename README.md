@@ -1,10 +1,20 @@
+<h1 align="center">
+  <br>
+<img src="https://raw.githubusercontent.com/NighTzy-Godz/assessment/master/client/public/ShopmeFy.png" width="70%">
+  <br>
+  ShopmeFy Full Documentation
+  <br>
+</h1>
+
+<h4 align="center">A full stack development that is built on top of NextJs and Typescript for frontend, and Flask for backend.</h4>
+
 # Frontend Documentation
 
 ## Description
 
 Welcome to the client-side documentation for the E-Commerce Application. This README will guide you through setting up, running, and understanding the client-side code of the application.
 
-## Table of Contents
+## Table of Contents - Client Side
 
 1. [Overview](#overview)
 2. [Getting Started](#getting-started)
@@ -91,7 +101,7 @@ To Start the development server, run
 
 This is the backend of a full-stack web application built using Flask, SQLAlchemy, and PostgreSQL. The backend provides RESTful API endpoints to manage users, products, and authentication, including JWT-based security. It supports operations such as creating, reading, updating, and deleting records, along with pagination and user-specific queries.
 
-## Table of Contents
+## Table of Contents - Server Side
 
 1. [Installation](#installation)
 2. [Environment Setup](#environment-setup)
