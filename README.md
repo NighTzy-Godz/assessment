@@ -126,8 +126,8 @@ To set up the backend locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/your-repo.git
-   cd your-repo/backend
+   git clone https://github.com/NighTzy-Godz/assessment.git
+   cd assessment/server
    ```
 
 2. Create and activate virtual environment
