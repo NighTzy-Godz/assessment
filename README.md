@@ -187,29 +187,30 @@ To manage your database schema:
 
 - `GET /api/items`
 
-- Retrieves all item.
-- **Response**: List of items retrieved.
+  - Retrieves all item.
+  - **Response**: List of items retrieved.
 
 - `GET /api/items/<id>`
 
-- Retrieves a specific item by ID.
-- **Response**: Item details.
+  - Retrieves a specific item by ID.
+  - **Response**: Item details.
 
 - `POST /api/items`
 
-- Creates a new Item
-- **Request Body**: `title`, `desc`, `price`, `img`,
-- **Response**: Item creation confirmation.
+  - Creates a new Item
+  - **Request Body**: `title`, `desc`, `price`, `img`,
+  - **Response**: Item creation confirmation.
 
 -`PUT /api/items/<id>`
 
 - Updates an existing item.
-- **Request Body**: `title`, `desc`, `price`, `img`,
-- **Response**: Update Item Confirmation
 
-- `DELETE /api/items/<id>`
-- Deletes an item.
-- **Response**: Deletion Confirmation
+  - **Request Body**: `title`, `desc`, `price`, `img`,
+  - **Response**: Update Item Confirmation
+
+  - `DELETE /api/items/<id>`
+  - Deletes an item.
+  - **Response**: Deletion Confirmation
 
 ## Authentication
 
