@@ -8,8 +8,8 @@ Welcome to the client-side documentation for the E-Commerce Application. This RE
 
 1. [Overview](#overview)
 2. [Getting Started](#getting-started)
-
-3. [Running the Application](#running-the-application)
+3. [Features](#features)
+4. [Running the Application](#running-the-application)
 
 ## Overview
 
@@ -43,6 +43,37 @@ The client side of this e-commerce application is built using Next.js and TypeSc
    ```bash
    NEXT_PUBLIC_API_URL=http://localhost:8080/api # Or any API ROUTE that you have
    ```
+
+## Features
+
+- **User Authentication**:
+
+  - Registration and login functionality.
+  - Secure authentication using JWT tokens.
+
+- **Product Management**:
+
+  - Create, read, update, and delete (CRUD) operations for products.
+  - Product details view with information such as title, description, price, and image.
+
+- **Responsive Design**:
+
+  - User interface that adjusts to different screen sizes and devices.
+  - Mobile-friendly layout for better user experience on smartphones and tablets.
+
+- **Error Handling**:
+
+  - User-friendly error messages and validation.
+  - Proper handling of API errors and form submission issues.
+
+- **Form Handling**:
+
+  - Custom components for form inputs, including text fields, text areas, and file uploads.
+  - Integration with `react-hook-form` for managing form state and validation.
+
+- **State Management**:
+  - Context-based state management for authentication and user sessions.
+  - Global state handling through React Context API.
 
 ## Running the application
 
