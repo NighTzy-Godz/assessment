@@ -150,9 +150,9 @@ Create a .env file in the root of the backend directory with the following varia
 - **FLASK_ENV**=development
 - **SECRET_KEY**=your_secret_key
 - **SQLALCHEMY_DATABASE_URI**=your_database_uri
-- **CLOUDINARY_NAME**=aserpogi # Use this for the meantime
-- **CLOUDINARY_API**_KEY=929295971968623 # Use this for the meantime
-- **CLOUDINARY_API_SECRET**=Z7kBuhB0nj1kNLN7K_qrVM_frSo # Use this for the meantime
+- **CLOUDINARY_NAME**=aserpogi ***# Use this for the meantime***
+- **CLOUDINARY_API**_KEY=929295971968623 ***# Use this for the meantime***
+- **CLOUDINARY_API_SECRET**=Z7kBuhB0nj1kNLN7K_qrVM_frSo ***# Use this for the meantime***
 
 ## Database Migration
 
