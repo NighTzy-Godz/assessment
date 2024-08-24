@@ -10,7 +10,7 @@
 
 - [Frontend Documentation](#frontend-documentation)
 - [Backend Documentation](#backend-documentation)
-- [Summary](#summary)
+- [Summary - Please Read](#summary)
 
 # Frontend Documentation
 
@@ -23,7 +23,7 @@ Welcome to the client-side documentation for the E-Commerce Application. This RE
 1. [Overview](#overview)
 2. [Getting Started](#getting-started)
 3. [Features](#features)
-4. [Running the Application - Please Read](#running-the-application)
+4. [Running the Application](#running-the-application)
 
 ## Overview
 
