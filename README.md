@@ -41,8 +41,8 @@ The client side of this e-commerce application is built using Next.js and TypeSc
 1. Clone the Repository
 
    ```bash
-   git clone https://github.com/your-repo/ecommerce-client.git
-   cd ecommerce-client
+   git clone https://github.com/NighTzy-Godz/assessment.git
+   cd assessment/client
    ```
 
 2. Install Dependencies
