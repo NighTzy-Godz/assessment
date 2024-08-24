@@ -71,22 +71,44 @@ To manage your database schema:
 
 ### User Routes
 
-`POST /api/registerUser` - Registers a New User -
-**Request Body**: `firstName`, `lastName`, `email`, `password`,`confirmPass` - **Response**: User creation confirmation
+- `POST /api/registerUser`
 
-`POST /api/loginUser` - Registers a New User - **Request Body**: `email`, `password`, - **Response**: JWT token for authentication.
+  - Registers a New User
+  - **Request Body**: `firstName`, `lastName`, `email`, `password`,`confirmPass`
+  - **Response**: User creation confirmation
+
+- `POST /api/loginUser`
+  - Registers a New User
+  - **Request Body**: `email`, `password`,
+  - **Response**: JWT token for authentication.
 
 ### Product Routes
 
-`GET /api/items` - Retrieves all item. - **Response**: List of items retrieved.
+-`GET /api/items`
 
-`GET /api/items/<id>` - Retrieves a specific item by ID. - **Response**: Item details.
+- Retrieves all item.
+- **Response**: List of items retrieved.
 
-`POST /api/items` - Creates a new Item - **Request Body**: `title`, `desc`, `price`, `img`, - **Response**: Item creation confirmation.
+-`GET /api/items/<id>`
 
-`PUT /api/items/<id>` - Updates an existing item. - **Request Body**: `title`, `desc`, `price`, `img`, - **Response**: Update Item Confirmation
+- Retrieves a specific item by ID.
+- **Response**: Item details.
 
-`DELETE /api/items/<id>` - Deletes an item. - **Response**: Deletion Confirmation
+-`POST /api/items`
+
+- Creates a new Item
+- **Request Body**: `title`, `desc`, `price`, `img`,
+- **Response**: Item creation confirmation.
+
+-`PUT /api/items/<id>`
+
+- Updates an existing item.
+- **Request Body**: `title`, `desc`, `price`, `img`,
+- **Response**: Update Item Confirmation
+
+- `DELETE /api/items/<id>`
+- Deletes an item.
+- **Response**: Deletion Confirmation
 
 ## Authentication
 
