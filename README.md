@@ -8,8 +8,8 @@ Welcome to the client-side documentation for the E-Commerce Application. This RE
 
 1. [Overview](#overview)
 2. [Getting Started](#getting-started)
-3. [Project Structure](#project-structure)
-4. [Running the Application](#running-the-application)
+
+3. [Running the Application](#running-the-application)
 
 ## Overview
 
@@ -43,31 +43,6 @@ The client side of this e-commerce application is built using Next.js and TypeSc
    ```bash
    NEXT_PUBLIC_API_URL=http://localhost:8080/api # Or any API ROUTE that you have
    ```
-
-## Project Structure
-
-/app /auth /login page.tsx # Login page component. Handles user login functionality. /register page.tsx # Registration page component. Handles user registration functionality. /item /[productId] page.tsx # Product details page component. Displays details for a specific product based on productId. page.tsx # Main entry point for the application. Renders the home page and handles routing.
-
-/components /forms FileUploader.tsx # Component for handling file uploads. Provides file input and upload functionality. Input.tsx # Component for text input fields. Includes styling and validation logic for input fields. TextArea.tsx # Component for multi-line text input. Used for larger text inputs like descriptions. Navbar.tsx # Navigation bar component. Includes links to various parts of the application. ContentCenter.tsx # Component to center content horizontally and vertically. Used for layout purposes. FormWidth.tsx # Component to control the width of forms. Ensures consistency in form layouts.
-
-/context AuthProvider.tsx # Context provider for managing authentication state. Provides user authentication status and methods for logging in and out.
-
-/styles globals.css # Global CSS styles. Applies styles that affect the entire application, including fonts, colors, and layout.
-
-/public /images logo.png # Application logo. Displayed in the navigation bar and possibly other locations. background.jpg # Background image. Used as a backdrop for the application's main layout.
-
-/pages index.tsx # Home page component. Displays a list of items and handles the main user interface. api /items.ts # API routes related to items. Handles CRUD operations for product items. /auth.ts # API routes related to authentication. Manages user login, registration, and authentication-related functionality.
-
-### Explanation
-
-- **`/app`**: Contains the core pages of the application, organized by routes and functionalities.
-- **`/components`**: Includes reusable UI components and form elements used throughout the application.
-- **`/context`**: Contains context providers that manage global state and logic, such as authentication state.
-- **`/styles`**: Defines global styles for the application, ensuring a consistent look and feel.
-- **`/public`**: Stores static assets like images and other files that are publicly accessible.
-- **`/pages`**: Manages API routes and static pages, separating logic for server-side and client-side functionality.
-
-Feel free to customize this description based on the actual structure and specifics of your project.
 
 # Backend Documentation
 
