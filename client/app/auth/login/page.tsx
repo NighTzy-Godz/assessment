@@ -108,7 +108,7 @@ function Login() {
             </button>
 
             <p className="text-textColor">
-              Don't have an account?{" "}
+              Don&apos;t have an account?
               <Link
                 href="/auth/register"
                 className="text-mainColor hover:underline"

@@ -2,6 +2,7 @@ import DeleteItemBtn from "@/components/DeleteItemBtn";
 import ProductDetailsBtns from "@/components/ProductDetailsBtns";
 import { useAuth } from "@/context/AuthProvider";
 import formatCurrency from "@/utils/formatCurreny";
+import Image from "next/image";
 import Link from "next/link";
 import { toast } from "sonner";
 
@@ -29,7 +30,7 @@ async function ProductDetails({ params }: { params: { productId: string } }) {
       <div className="container mx-auto">
         <div className="flex gap-10">
           <div className="w-1/2">
-            <img
+            <Image
               src={item.img}
               className="h-[400px] object-cover rounded-lg"
               alt=""

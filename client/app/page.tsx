@@ -1,5 +1,6 @@
 import ContentCenter from "@/components/ContentCenter";
 import formatCurrency from "@/utils/formatCurreny";
+import Image from "next/image";
 import Link from "next/link";
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -26,7 +27,7 @@ export default async function Home() {
       return (
         <ContentCenter>
           <h1 className="md:text-5xl sm:text-4xl text-3xl text-textColor text-center md:w-[80%] w-full capitalize">
-            There's no Items at the moment. Maybe you want to add some?
+            There&apos;s no Items at the moment. Maybe you want to add some?
           </h1>
         </ContentCenter>
       );
@@ -36,8 +37,8 @@ export default async function Home() {
         {items.map((item) => (
           <div className="shadow-xl rounded-md p-2 " key={item.id}>
             <Link className="mb-2 block" href={`/item/${item.id}`}>
-              {" "}
-              <img
+              <Image
+                alt=""
                 src={item.img}
                 className="h-56 w-full rounded-md object-cover"
               />

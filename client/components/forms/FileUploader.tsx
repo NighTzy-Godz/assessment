@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, {
   InputHTMLAttributes,
   forwardRef,
@@ -43,7 +44,7 @@ const FileUploader: React.FC<FileUploaderProps> = forwardRef<
     return (
       previewImg && (
         <div className="mb-5 relative h-[340px] w-full ">
-          <img
+          <Image
             src={previewImg}
             alt="Preview"
             className="w-full h-full object-cover rounded-xl"
@@ -77,5 +78,7 @@ const FileUploader: React.FC<FileUploaderProps> = forwardRef<
     </React.Fragment>
   );
 });
+
+FileUploader.displayName = "FileUpload";
 
 export default FileUploader;
