@@ -44,6 +44,16 @@ The client side of this e-commerce application is built using Next.js and TypeSc
    NEXT_PUBLIC_API_URL=http://localhost:8080/api # Or any API ROUTE that you have
    ```
 
+## Running the application
+
+To Start the development server, run
+
+```bash
+    npm run dev
+    # or
+    yarn dev
+```
+
 # Backend Documentation
 
 ## Description
