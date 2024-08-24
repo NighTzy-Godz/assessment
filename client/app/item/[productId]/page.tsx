@@ -30,7 +30,7 @@ async function ProductDetails({ params }: { params: { productId: string } }) {
       <div className="container mx-auto">
         <div className="flex gap-10">
           <div className="w-1/2">
-            <Image
+            <img
               src={item.img}
               className="h-[400px] object-cover rounded-lg"
               alt=""

@@ -44,7 +44,7 @@ const FileUploader: React.FC<FileUploaderProps> = forwardRef<
     return (
       previewImg && (
         <div className="mb-5 relative h-[340px] w-full ">
-          <Image
+          <img
             src={previewImg}
             alt="Preview"
             className="w-full h-full object-cover rounded-xl"

@@ -37,7 +37,7 @@ export default async function Home() {
         {items.map((item) => (
           <div className="shadow-xl rounded-md p-2 " key={item.id}>
             <Link className="mb-2 block" href={`/item/${item.id}`}>
-              <Image
+              <img
                 alt=""
                 src={item.img}
                 className="h-56 w-full rounded-md object-cover"
