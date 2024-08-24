@@ -23,7 +23,7 @@ Welcome to the client-side documentation for the E-Commerce Application. This RE
 1. [Overview](#overview)
 2. [Getting Started](#getting-started)
 3. [Features](#features)
-4. [Running the Application](#running-the-application)
+4. [Running the Application - Please Read](#running-the-application)
 
 ## Overview
 
@@ -208,7 +208,7 @@ To manage your database schema:
   - **Request Body**: `title`, `desc`, `price`, `img`,
   - **Response**: Update Item Confirmation
 
-  - `DELETE /api/items/<id>`
+- `DELETE /api/items/<id>`
   - Deletes an item.
   - **Response**: Deletion Confirmation
 
@@ -222,6 +222,10 @@ The backend uses JWT tokens to authenticate requests. Tokens are generated durin
 - **401 Unauthorized**: Authentication required or failed.
 - **404 Not Found**: Requested resource not found.
 
-## Summary
+# Summary
 
-I will put my summary here later
+- This project is a junior fullstack assessment that marks my first experience into building a web application with Next.js and Flask. Over the course of a single day, I dove into Next.js and Flask, learning their intricacies and applying them to build a functional client-side application. With just one and a half day to complete the project, I tackled both the frontend and backend aspects, utilizing Flask for the server-side functionality.
+
+- While I’m familiar with deploying applications, deploying both Next.js and Flask posed a unique challenge due to my lack of experience with these specific technologies. I faced an additional setback when my internet connection from PLDT was down for almost a day. Because of these challenges and time constraints, the application wasn’t fully deployed by the end of the project.
+
+- Despite these hurdles, this project has been a significant learning experience. It demonstrated that I can quickly grasp new technologies and adapt to new challenges. This journey has reinforced my ability to learn and implement new skills efficiently, even within a tight deadline. I appreciate your understanding as I worked through these challenges and strived to complete the assessment to the best of my ability.
