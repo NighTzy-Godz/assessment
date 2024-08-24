@@ -42,7 +42,7 @@ The client side of this e-commerce application is built using Next.js and TypeSc
 
    ```bash
    git clone https://github.com/NighTzy-Godz/assessment.git
-   cd client
+   cd assessment/client
    ```
 
 2. Install Dependencies
