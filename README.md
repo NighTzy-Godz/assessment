@@ -71,7 +71,8 @@ To manage your database schema:
 
 ### User Routes
 
-`POST /api/registerUser` - Registers a New User - **Request Body**: `firstName`, `lastName`, `email`, `password`,`confirmPass` - **Response**: User creation confirmation
+`POST /api/registerUser` - Registers a New User -
+**Request Body**: `firstName`, `lastName`, `email`, `password`,`confirmPass` - **Response**: User creation confirmation
 
 `POST /api/loginUser` - Registers a New User - **Request Body**: `email`, `password`, - **Response**: JWT token for authentication.
 
@@ -89,7 +90,7 @@ To manage your database schema:
 
 ## Authentication
 
-The backend uses JWT tokens to authenticate requests. Tokens are generated during login and must be included in the `header` with an `x-auth-token` ---- for protected routes.
+The backend uses JWT tokens to authenticate requests. Tokens are generated during login and must be included in the `header` with an `x-auth-token` property for protected routes.
 
 ## Error Handling
 
