@@ -142,6 +142,11 @@ To set up the backend locally, follow these steps:
    pip install -r requirements.txt
    ```
 
+4. Run the server
+  ```bash
+  python run.py
+  ```
+
 ## Environment Setup
 
 Create a .env file in the root of the backend directory with the following variables:
