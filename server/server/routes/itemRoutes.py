@@ -6,7 +6,13 @@ from server.models.ItemModel import Item
 from functools import wraps
 import jwt
 
- 
+
+
+
+"""
+This is the middleware to check if the user is currently authenticated by just simply looking at its jwt token
+"""
+
 def isAuth(f):
     @wraps(f)
     def func(*args, **kwargs):
@@ -28,6 +34,21 @@ def isAuth(f):
         return f(*args, **kwargs)  
 
     return func  
+
+@app.route('/api/items', methods=['GET'])
+def getAllItems():
+    curr_page = request.args.get('currPage', 1, type=int)  
+    per_page = 10  
+
+    paginated_items = Item.query.paginate(page=curr_page, per_page=per_page, error_out=False)
+    items = [item.toDict() for item in paginated_items.items]
+
+    response = {
+        "data": items,  
+        "total": paginated_items.total  
+    }
+
+    return jsonify({"data": response, "status": 201}), 201
 
 @app.route('/api/items', methods=['POST'])
 @isAuth
@@ -66,7 +87,6 @@ def addItems():
     except Exception as e:
         print(e)
    
-
 """
 
 // params id = This is the ID of the product that we're going to use to find the item and edit it afterwards.
@@ -111,7 +131,7 @@ def editItem(id):
 // params id = This is the ID of the product that we're going to use for fetching the information of the specific item
 
 """
-@app.route('/api/items/<int:id>')
+@app.route('/api/items/<int:id>', methods=['GET'])
 def getItemDetails(id):
     try:
         foundItem = Item.query.get(id)
@@ -124,6 +144,7 @@ def getItemDetails(id):
     except Exception as e:
         print(e)
 
+
 """
 
 // params id = This is the ID of the product that we're going to use for deleting the specific item
@@ -131,6 +152,7 @@ def getItemDetails(id):
 """
 
 @app.route('/api/items/<int:id>', methods=['DELETE'])
+@isAuth
 def deleteItem(id):
     try:
         item = Item.query.get(id)
