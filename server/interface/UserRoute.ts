@@ -5,6 +5,8 @@ import UserRepository from "../infrastructure/UserRepository";
 import { storage } from "../cloudinary";
 import multer from "multer";
 import { TokenService } from "../infrastructure/TokenService";
+import validateSchema from "../infrastructure/ValidateSchema";
+import { registerUserSchema } from "../infrastructure/UserValidator";
 
 const app = Router();
 const upload = multer({ storage });
@@ -21,8 +23,12 @@ app.post(
     userController.registerUser(req, res, next)
 );
 
-app.post("/login-user", (req: Request, res: Response, next: NextFunction) => {
-  userController.loginUser(req, res, next);
-});
+app.post(
+  "/login-user",
+  [validateSchema(registerUserSchema)],
+  (req: Request, res: Response, next: NextFunction) => {
+    userController.loginUser(req, res, next);
+  }
+);
 
 export default app;

@@ -6,6 +6,7 @@ export class TokenService {
   generateToken(user: IUser): string {
     const payload = {
       first_name: user.first_name,
+      email: user.email,
     };
     return jwt.sign(payload, JWT_SECRET_PASS as string, {
       expiresIn: "2d",
