@@ -14,6 +14,7 @@ export function renderError(
   if (error && "status" in error) {
     if ((error.status as number) >= 500) {
       toast.error("Unexpected Error Happened", { id: "unexpected_error" });
+      return;
     } else {
       toast.error(error.data as string, { id: "error_data" });
     }
@@ -21,6 +22,7 @@ export function renderError(
   if (error && "originalStatus" in error) {
     if (error.originalStatus >= 500) {
       toast.error("Unexpected Error Happened", { id: "unexpected_error" });
+      return;
     } else {
       toast.error(error.data, { id: "error_data" });
     }

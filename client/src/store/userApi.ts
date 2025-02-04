@@ -27,6 +27,16 @@ const userApi = createApi({
         };
       },
     }),
+
+    loginUser: builder.mutation({
+      query: (data) => {
+        return {
+          url: "/login-user",
+          body: data,
+          method: "POST",
+        };
+      },
+    }),
   }),
 });
 
