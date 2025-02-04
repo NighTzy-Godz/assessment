@@ -1,0 +1,33 @@
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+
+const pause = (duration: number) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, duration);
+  });
+};
+
+const userApi = createApi({
+  reducerPath: "userApi",
+  baseQuery: fetchBaseQuery({
+    // This is a function that will acts like a loading state instead of changing the network speed in console
+    fetchFn: async (...args) => {
+      await pause(3000);
+      return fetch(...args);
+    },
+
+    baseUrl: "http://localhost:8080/api/user",
+  }),
+  endpoints: (builder) => ({
+    registerUser: builder.mutation({
+      query: (data) => {
+        return {
+          url: "/register-user",
+          method: "POST",
+          body: data,
+        };
+      },
+    }),
+  }),
+});
+
+export { userApi };
