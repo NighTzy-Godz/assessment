@@ -6,3 +6,8 @@ export default interface IUser {
   phone_number: string;
   profile_image: string;
 }
+
+export interface UserTokenEntity {
+  _id: string;
+  first_name: string;
+}

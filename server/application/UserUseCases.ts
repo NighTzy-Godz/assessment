@@ -1,9 +1,14 @@
 import IUser from "../domain/IUser";
+import IUserRepository from "../domain/IUserRepository";
 import { UserAlreadyExistsError } from "../domain/UserAlreadyExistsError";
-import UserRepository from "../infrastructure/UserRepository";
+import { UserNotFoundError } from "../domain/UserNotFoundError";
+import { TokenService } from "../infrastructure/TokenService";
 
 class UserUseCases {
-  constructor(private userRepository: UserRepository) {}
+  constructor(
+    private userRepository: IUserRepository,
+    private tokenService: TokenService
+  ) {}
 
   async createUser(user: IUser): Promise<IUser> {
     const foundUser = await this.userRepository.findUserByEmail(user.email);
@@ -12,6 +17,15 @@ class UserUseCases {
     }
 
     return this.userRepository.createUser(user);
+  }
+
+  async loginUser(email: string): Promise<string> {
+    const foundUser = await this.userRepository.findUserByEmail(email);
+    if (!foundUser) {
+      throw new UserNotFoundError();
+    }
+    const token = this.tokenService.generateToken(foundUser);
+    return token;
   }
 }
 

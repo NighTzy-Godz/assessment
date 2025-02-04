@@ -2,6 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import UserUseCases from "../application/UserUseCases";
 import IUser from "../domain/IUser";
 import { UserAlreadyExistsError } from "../domain/UserAlreadyExistsError";
+import { UserNotFoundError } from "../domain/UserNotFoundError";
 
 class UserController {
   constructor(private userUseCases: UserUseCases) {}
@@ -27,11 +28,25 @@ class UserController {
       const newUser = await this.userUseCases.createUser(transformedData);
       res.status(201).json(newUser);
     } catch (error) {
-      console.log("ERror - ", error);
       if (error instanceof UserAlreadyExistsError) {
         res.status(400).json("User already exists with this email");
       }
       next(error);
+    }
+  }
+
+  async loginUser(req: Request, res: Response, next: NextFunction) {
+    try {
+      const { email } = req.body;
+      const token = await this.userUseCases.loginUser(email);
+
+      res.status(200).json(token);
+    } catch (err) {
+      if (err instanceof UserNotFoundError) {
+        res.status(404).json("User did not found");
+      }
+
+      next(err);
     }
   }
 }
