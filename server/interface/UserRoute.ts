@@ -18,6 +18,7 @@ const userController = new UserController(userUserCases);
 
 app.post(
   "/register-user",
+  [validateSchema(registerUserSchema)],
   upload.single("profile_image"),
   (req: Request, res: Response, next: NextFunction) =>
     userController.registerUser(req, res, next)
@@ -25,7 +26,7 @@ app.post(
 
 app.post(
   "/login-user",
-  [validateSchema(registerUserSchema)],
+
   (req: Request, res: Response, next: NextFunction) => {
     userController.loginUser(req, res, next);
   }
