@@ -9,6 +9,7 @@ import { Loader2 } from "lucide-react";
 import { useEffect } from "react";
 import { toast } from "sonner";
 import { renderError } from "@/lib/utils";
+
 const UserRegister = () => {
   const navigate = useNavigate();
 

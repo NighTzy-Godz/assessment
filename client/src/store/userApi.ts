@@ -1,10 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const pause = (duration: number) => {
-  return new Promise((resolve) => {
-    setTimeout(resolve, duration);
-  });
-};
+// const pause = (duration: number) => {
+//   return new Promise((resolve) => {
+//     setTimeout(resolve, duration);
+//   });
+// };
 
 const userApi = createApi({
   reducerPath: "userApi",
