@@ -10,10 +10,10 @@ const userApi = createApi({
   reducerPath: "userApi",
   baseQuery: fetchBaseQuery({
     // This is a function that will acts like a loading state instead of changing the network speed in console
-    fetchFn: async (...args) => {
-      await pause(3000);
-      return fetch(...args);
-    },
+    // fetchFn: async (...args) => {
+    //   await pause(3000);
+    //   return fetch(...args);
+    // },
 
     baseUrl: "http://localhost:8080/api/user",
   }),

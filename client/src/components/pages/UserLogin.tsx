@@ -3,21 +3,23 @@ import { Input } from "../ui/input";
 import { useForm } from "react-hook-form";
 import { UserLoginData } from "@/interfaces/UserInterfaces";
 import { Button } from "../ui/button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { userApi } from "@/store/userApi";
 import { useEffect } from "react";
-import { renderError } from "@/lib/utils";
+import { renderError, setStorageItem } from "@/lib/utils";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 
 const UserLogin = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<UserLoginData>();
 
-  const [loginUser, { error, isLoading, isSuccess }] =
+  const [loginUser, { data, error, isLoading, isSuccess }] =
     userApi.useLoginUserMutation();
 
   const handleUserLoginSubmit = (data: UserLoginData) => {
@@ -31,6 +33,8 @@ const UserLogin = () => {
 
     if (isSuccess) {
       toast.success("Successfully Logged In");
+      setStorageItem("token", data);
+      navigate("/profile");
     }
   }, [error, isSuccess]);
 
@@ -72,7 +76,7 @@ const UserLogin = () => {
         )}
         <p className="text-sm text-gray-700">
           Don't Have an Account? Register{" "}
-          <Link className="text-blue-500 underline" to="/">
+          <Link className="text-blue-500 underline" to="/register">
             Here
           </Link>
         </p>

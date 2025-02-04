@@ -28,3 +28,33 @@ export function renderError(
     }
   }
 }
+
+export function setStorageItem(name: string, value: any) {
+  try {
+    const serializedValue = JSON.stringify(value);
+    localStorage.setItem(name, serializedValue);
+  } catch (error) {
+    console.error(`Error setting item ${name} in localStorage:`, error);
+  }
+}
+
+export function getStorageItem(name: string) {
+  try {
+    const serializedValue = localStorage.getItem(name);
+    if (serializedValue === null) {
+      return null;
+    }
+    return JSON.parse(serializedValue);
+  } catch (error) {
+    console.error(`Error getting item ${name} from localStorage:`, error);
+    return null;
+  }
+}
+
+export function removeStorageItem(name: string) {
+  try {
+    localStorage.removeItem(name);
+  } catch (error) {
+    console.error(`Error removing item ${name} from localStorage:`, error);
+  }
+}
