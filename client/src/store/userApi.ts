@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
+const BASE_URL = import.meta.env.BASE_URL;
 // const pause = (duration: number) => {
 //   return new Promise((resolve) => {
 //     setTimeout(resolve, duration);
@@ -15,7 +15,7 @@ const userApi = createApi({
     //   return fetch(...args);
     // },
 
-    baseUrl: "http://localhost:8080/api/user",
+    baseUrl: `${BASE_URL}/user`,
   }),
   endpoints: (builder) => ({
     registerUser: builder.mutation({
