@@ -1,6 +1,6 @@
-import IUser from "../domain/IUser";
-import IUserRepository from "../domain/IUserRepository";
-import User from "./UserModel";
+import IUser from "../../domain/IUser";
+import IUserRepository from "../../domain/IUserRepository";
+import User from "../models/UserModel";
 
 class UserRepository implements IUserRepository {
   async createUser(user: IUser): Promise<IUser> {

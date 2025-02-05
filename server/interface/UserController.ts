@@ -7,6 +7,20 @@ import { UserNotFoundError } from "../domain/UserNotFoundError";
 class UserController {
   constructor(private userUseCases: UserUseCases) {}
 
+  async getUserData(req: Request, res: Response, next: NextFunction) {
+    try {
+      const email = req.user?.email;
+      if (!email) {
+        res.status(400).send("Email is required in this request");
+        return;
+      }
+      const user = this.userUseCases.fetchUserData(email);
+      res.status(200).json(user);
+    } catch (err) {
+      next(err);
+    }
+  }
+
   async registerUser(req: Request, res: Response, next: NextFunction) {
     try {
       if (!req.file) {
