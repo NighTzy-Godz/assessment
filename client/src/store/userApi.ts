@@ -1,11 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-const BASE_URL = import.meta.env.BASE_URL;
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 // const pause = (duration: number) => {
 //   return new Promise((resolve) => {
 //     setTimeout(resolve, duration);
 //   });
 // };
-
+console.log(BASE_URL);
 const userApi = createApi({
   reducerPath: "userApi",
   baseQuery: fetchBaseQuery({
