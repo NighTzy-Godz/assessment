@@ -11,21 +11,23 @@ export function cn(...inputs: ClassValue[]) {
 export function renderError(
   error: FetchBaseQueryError | SerializedError | undefined
 ) {
+  const renderErrmsg = (msg: string): string => {
+    if (!msg) return "Some error happened";
+    return msg;
+  };
+
+  const handleError = (status: number, data: any) => {
+    if (status >= 500) {
+      toast.error("Unexpected Error Happened", { id: "unexpected_error" });
+    } else {
+      toast.error(renderErrmsg(data as string), { id: "error_data" });
+    }
+  };
+
   if (error && "status" in error) {
-    if ((error.status as number) >= 500) {
-      toast.error("Unexpected Error Happened", { id: "unexpected_error" });
-      return;
-    } else {
-      toast.error(error.data as string, { id: "error_data" });
-    }
-  }
-  if (error && "originalStatus" in error) {
-    if (error.originalStatus >= 500) {
-      toast.error("Unexpected Error Happened", { id: "unexpected_error" });
-      return;
-    } else {
-      toast.error(error.data, { id: "error_data" });
-    }
+    handleError(error.status as number, error.data);
+  } else if (error && "originalStatus" in error) {
+    handleError(error.originalStatus as number, (error as any).data);
   }
 }
 
