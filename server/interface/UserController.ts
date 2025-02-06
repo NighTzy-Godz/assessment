@@ -10,11 +10,13 @@ class UserController {
   async getUserData(req: Request, res: Response, next: NextFunction) {
     try {
       const email = req.user?.email;
+
       if (!email) {
         res.status(400).send("Email is required in this request");
         return;
       }
-      const user = this.userUseCases.fetchUserData(email);
+      const user = await this.userUseCases.fetchUserData(email);
+
       res.status(200).json(user);
     } catch (err) {
       next(err);

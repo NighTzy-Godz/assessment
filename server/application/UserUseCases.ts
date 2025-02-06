@@ -1,13 +1,13 @@
+import ITokenService from "../domain/ITokenService";
 import IUser from "../domain/IUser";
 import IUserRepository from "../domain/IUserRepository";
 import { UserAlreadyExistsError } from "../domain/UserAlreadyExistsError";
 import { UserNotFoundError } from "../domain/UserNotFoundError";
-import { TokenService } from "../infrastructure/services/TokenService";
 
 class UserUseCases {
   constructor(
     private userRepository: IUserRepository,
-    private tokenService: TokenService
+    private tokenService: ITokenService
   ) {}
 
   async fetchUserData(email: string): Promise<IUser> {
