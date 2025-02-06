@@ -2,20 +2,20 @@ import { getStorageItem } from "@/lib/utils";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
-const pause = (duration: number) => {
-  return new Promise((resolve) => {
-    setTimeout(resolve, duration);
-  });
-};
+// const pause = (duration: number) => {
+//   return new Promise((resolve) => {
+//     setTimeout(resolve, duration);
+//   });
+// };
 
 const userApi = createApi({
   reducerPath: "userApi",
   baseQuery: fetchBaseQuery({
     // This is a function that will acts like a loading state instead of changing the network speed in console
-    fetchFn: async (...args) => {
-      await pause(3000);
-      return fetch(...args);
-    },
+    // fetchFn: async (...args) => {
+    //   await pause(3000);
+    //   return fetch(...args);
+    // },
 
     baseUrl: `${BASE_URL}/user`,
     prepareHeaders: (headers) => {

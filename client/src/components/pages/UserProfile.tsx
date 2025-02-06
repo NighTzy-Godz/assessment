@@ -2,7 +2,7 @@ import { getStorageItem, removeStorageItem } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { userApi } from "@/store/userApi";
 import IUser from "@/interfaces/UserInterfaces";
 import InputSkeleton from "../ui/input_skeleton";
