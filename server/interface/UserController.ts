@@ -43,7 +43,7 @@ class UserController {
       res.status(201).json(newUser);
     } catch (error) {
       if (error instanceof UserAlreadyExistsError) {
-        res.status(400).json("User already exists with this email");
+        res.status(409).json("User already exists with this email");
       }
       next(error);
     }

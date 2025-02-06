@@ -13,6 +13,10 @@ export const registerUserSchema = Joi.object({
     "string.empty": "Last Name cannot be empty",
   }),
 
+  middle_name: Joi.string().allow("").messages({
+    "string.base": "Middle Name should be a type of string",
+  }),
+
   phone_number: Joi.string().required().messages({
     "any.required": "Phone Number is a required field",
     "string.base": "Phone Number should be a type of string",
