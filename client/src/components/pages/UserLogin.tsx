@@ -27,6 +27,8 @@ const UserLogin = () => {
   };
 
   useEffect(() => {
+    document.title = "Inventi | Login";
+
     if (error) {
       renderError(error);
     }

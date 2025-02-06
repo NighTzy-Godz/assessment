@@ -43,6 +43,8 @@ const UserRegister = () => {
   };
 
   useEffect(() => {
+    document.title = "Inventi | Register";
+
     if (error) {
       renderError(error);
     }

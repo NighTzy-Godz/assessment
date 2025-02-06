@@ -24,6 +24,8 @@ const UserProfile = () => {
   } = (data as IUser) || {};
 
   useEffect(() => {
+    document.title = "Inventi | Profile";
+
     const token = getStorageItem("token");
     if (!token) {
       toast.warning("You need to authenticate first", { id: "Register" });
